@@ -21,7 +21,7 @@ This repository demonstrates core GitHub functionality including:
 - Collaboration workflows
 - GitHub Actions (basic introduction)
 
-**Note:** A Node.js web application will be added in future sessions.
+**Node.js Application:** This repository includes a weather dashboard web application built with Node.js, Express, and Bootstrap.
 
 ## 🚀 Getting Started
 
@@ -31,6 +31,8 @@ This repository demonstrates core GitHub functionality including:
 - GitHub account
 - Basic command line knowledge
 - Text editor or IDE (VS Code recommended)
+- Node.js (v14 or higher) and npm installed
+- OpenWeatherMap API key (free tier available)
 
 ### Initial Setup
 
@@ -44,7 +46,21 @@ This repository demonstrates core GitHub functionality including:
    ```bash
    git config --global user.name "Your Name"
    git config --global user.email "your.email@example.com"
+   ``Install dependencies**
+   ```bash
+   npm install
    ```
+
+4. **Set up environment variables**
+   ```bash
+   # Copy the example env file
+   copy .env.example .env
+   
+   # Edit .env and add your OpenWeatherMap API key
+   # Get a free API key from: https://openweathermap.org/api
+   ```
+
+5. **`
 
 3. **Verify setup**
    ```bash
@@ -453,13 +469,97 @@ gh pr status
 - [GitHub Skills](https://skills.github.com)
 - [GitHub CLI Manual](https://cli.github.com/manual/)
 
-### Learning Resources
+###🌤️ Weather Dashboard Application
 
-- [GitHub Learning Lab](https://lab.github.com)
-- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
-- [Markdown Guide](https://www.markdownguide.org)
-- [Conventional Commits](https://www.conventionalcommits.org)
+This repository includes a fully functional Node.js web application that displays real-time weather information.
 
+### Features
+
+- **Real-time Clock**: Displays current date, time, and timezone
+- **Multi-City Weather**: Shows weather for 5 cities:
+  - Singapore
+  - Bangalore, India
+  - Mumbai, India
+  - Sydney, Australia
+  - Bangkok, Thailand
+- **Weather Details**: Temperature, humidity, wind speed, pressure, and conditions
+- **Clean UI**: Built with Bootstrap 5 for a modern, responsive design
+- **Auto-refresh**: Weather data updates every 10 minutes
+
+### Running the Application
+
+1. **Start the server**
+   ```bash
+   npm start
+   ```
+
+2. **Access the application**
+   - Open your browser and navigate to: `http://localhost:3000`
+
+3. **For development with auto-reload**
+   ```bash
+   npm run dev
+   ```
+
+### Project Structure
+
+```
+.
+├── public/
+│   ├── index.html      # Main HTML file with Bootstrap UI
+│   ├── styles.css      # Custom styling
+│   └── app.js          # Frontend JavaScript
+├── server.js           # Express server and API endpoints
+├── package.json        # Dependencies and scripts
+├── .env.example        # Environment variables template
+├── .gitignore          # Git ignore rules
+└── README.md           # This file
+```
+
+### API Endpoints
+
+- `GET /` - Serves the main application
+- `GET /api/weather` - Returns weather data for all configured cities
+
+### Technologies Used
+
+- **Backend**: Node.js, Express.js
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **UI Framework**: Bootstrap 5
+- **Icons**: Bootstrap Icons
+- **Weather API**: OpenWeatherMap API
+- **HTTP Client**: Axios
+
+### Getting Your API Key
+
+1. Visit [OpenWeatherMap](https://openweathermap.org/api)
+2. Sign up for a free account
+3. Navigate to API Keys section
+4. Copy your API key
+5. Add it to your `.env` file
+
+### Customization
+
+**Adding More Cities:**
+
+Edit [server.js](server.js#L14-L20) and add city coordinates to the `cities` array:
+
+```javascript
+{ name: 'Your City', lat: 0.0000, lon: 0.0000 }
+```
+
+**Changing Refresh Interval:**
+
+Edit [public/app.js](public/app.js) line with `setInterval(fetchWeather, 600000)` and change `600000` (10 minutes in milliseconds).
+
+## 🔮 Next Steps
+
+- Advanced GitHub Actions workflows for CI/CD
+- Deploy application to Azure App Service or GitHub Pages
+- Add weather forecast (5-day prediction)
+- Security features (Dependabot, Code scanning)
+- Implement caching for API responses
+- Add unit tests
 ### Tools
 
 - [GitHub Desktop](https://desktop.github.com)
