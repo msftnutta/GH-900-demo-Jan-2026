@@ -1,4 +1,4 @@
-# GH-900: GitHub Fundamentals Demo สวัสดีครับ
+# GH-900: GitHub Fundamentals Demo
 
 Welcome to the GitHub Fundamentals training repository! This demo covers essential GitHub features and workflows.
 
