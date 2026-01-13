@@ -29,20 +29,9 @@ function updateDateTime() {
 
 // Create weather card HTML
 function createWeatherCard(weather) {
-    if (weather.error) {
-        return `
-            <div class="col-md-6 col-lg-4">
-                <div class="card weather-card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="city-name">${weather.city}</h5>
-                        <p class="text-danger">${weather.error}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-    
     const iconUrl = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;
+    const mockBadge = weather.isMockData ? 
+        '<span class="badge bg-warning text-dark mb-2"><i class="bi bi-info-circle"></i> Sample Data</span>' : '';
     
     return `
         <div class="col-md-6 col-lg-4">
@@ -52,6 +41,7 @@ function createWeatherCard(weather) {
                         <i class="bi bi-geo-alt-fill text-danger"></i>
                         ${weather.city}
                     </h5>
+                    ${mockBadge}
                     <img src="${iconUrl}" alt="${weather.description}" class="weather-icon">
                     <div class="temperature">${weather.temperature}°C</div>
                     <p class="weather-description">${weather.description}</p>
@@ -124,7 +114,7 @@ async function fetchWeather() {
         loadingElement.style.display = 'none';
         errorElement.style.display = 'block';
         document.getElementById('error-text').textContent = 
-            'Unable to fetch weather data. Please check your API key configuration.';
+            'Unable to connect to weather service. Please check your internet connection.';
     }
 }
 
