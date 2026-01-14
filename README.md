@@ -1,3 +1,5 @@
+[![CI - Build and Test](https://github.com/msftnutta/GH-900-demo-Jan-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/msftnutta/GH-900-demo-Jan-2026/actions/workflows/ci.yml)
+
 # GH-900: GitHub Fundamentals Demo
 
 Welcome to the GitHub Fundamentals training repository! This demo covers essential GitHub features and workflows.
