@@ -5,6 +5,7 @@ yarn.lock
 
 # Environment variables
 .env
+app.properties
 
 # Logs
 logs/
